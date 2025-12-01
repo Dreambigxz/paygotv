@@ -66,7 +66,7 @@ export class PaymentConfirmationComponent {
     this.quickNav.reqServerData.get(url)
 
     .subscribe(response => {
-      console.log({response});
+      // console.log({response});
 
       this.serviceData.update(response)
       this.username=response.username
