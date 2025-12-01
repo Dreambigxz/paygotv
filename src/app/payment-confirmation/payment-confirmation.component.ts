@@ -92,7 +92,8 @@ export class PaymentConfirmationComponent {
     dialogRef.afterClosed().subscribe(result => {
       if (result) {
         this.isLoadingContent=true
-        this.apiService.tokenData('confirmation/', this.authService.tokenKey,'post', {action:status,id:transaction.id})
+        // this.apiService.tokenData('confirmation/', this.authService.tokenKey,'post', {action:status,id:transaction.id})
+        this.quickNav.reqServerData.post('confirmation/', {action:status,id:transaction.id})
         .subscribe(response => {
           this.isLoadingContent=false;
           transaction.status = status;

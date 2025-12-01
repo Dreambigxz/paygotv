@@ -39,6 +39,9 @@ export class UserPackageComponent {
     }else{
       this.investments=this.quickNav.storeData.get('packages')
     }
+
+    // console.log('INVETMENTS');
+
   }
 
   get activeList() {

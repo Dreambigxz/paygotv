@@ -6,11 +6,11 @@
 			<div class="form">
 				<form id="paymentCompletedForm" (ngSubmit)="walletService.paymentCompleted()"  [formGroup]="paymentCompletedForm" novalidate="novalidate">
 					<div class="form__row">
-						<input [ngModel]="walletService.localDepositSendersName" type="text" formControlName="senders_name" name="senders_name" value="" class="form__input required" placeholder="Senders Name/ ID" >
+						<input [(ngModel)]="walletService.localDepositSendersName" type="text" formControlName="senders_name" name="senders_name" value="" class="form__input required" placeholder="Senders Name/ ID" >
             <small class="minimum-val">Optional</small>
 					</div>
 					<div class="form__row">
-						<input [ngModel]="walletService.LocalDepositSenderAccNum" type="text" formControlName="transaction_id" name="transaction_id" value="" class="form__input required" placeholder="Transfer Number" required>
+						<input [(ngModel)]="walletService.LocalDepositSenderAccNum" type="text" formControlName="transaction_id" name="transaction_id" value="" class="form__input required" placeholder="Transfer Number" required>
             <small class="minimum-val">Account number money was sent from</small>
 
 					</div>
