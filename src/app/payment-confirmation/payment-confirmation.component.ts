@@ -10,6 +10,7 @@ import { MatDialog } from '@angular/material/dialog';
 
 import { timeSince, copyContent, quickMessage } from '../../helper';
 import { SimpleDialogComponent } from "../simple-dialog/simple-dialog.component";
+import { QuickNavService } from '../reuseables/services/quick-nav.service';
 
 @Component({
   selector: 'app-payment-confirmation',
@@ -26,6 +27,7 @@ export class PaymentConfirmationComponent {
     private route: ActivatedRoute,
     public dialog: MatDialog,
     public quickMessage: quickMessage,
+    public quickNav: QuickNavService
 
   ) {}
 
@@ -60,7 +62,9 @@ export class PaymentConfirmationComponent {
 
     let url = 'confirmation'+window.location.search
 
-    this.apiService.tokenData(url, this.authService.tokenKey,'get', {})
+    // this.apiService.tokenData(url, this.authService.tokenKey,'get', {})
+    this.quickNav.reqServerData.get(url)
+
     .subscribe(response => {
       console.log({response});
 
