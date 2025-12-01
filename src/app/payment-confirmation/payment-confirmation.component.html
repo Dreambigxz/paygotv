@@ -151,7 +151,7 @@
                 <!-- Modal Overlay -->
                 <div class="modal-backdrop" *ngIf="previewVisible" (click)="closePreview()">
                   <div class="modal-content" (click)="$event.stopPropagation()">
-                    <img [src]="tra.file_url" alt="Full Proof" />
+                    <img [src]="tra.proof" alt="Full Proof" />
                     <button class="close-button" (click)="closePreview()">✖</button>
                   </div>
                 </div>
