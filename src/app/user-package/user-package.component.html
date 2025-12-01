@@ -22,7 +22,7 @@
 
   <!-- ACTIVE TAB -->
     <div *ngIf="activeTab === 'active'">
-      <div *ngIf="activeList.length;else Noav">
+      <div *ngIf="activeList?.length;else Noav">
         <div class="investment-card active" *ngFor="let inv of activeList">
           <div class="card-header" (click)="toggleExpand(inv.id)">
             <div>
@@ -52,7 +52,7 @@
 
     <!-- COMPLETED TAB -->
     <div *ngIf="activeTab === 'completed'">
-      <div *ngIf="completedList.length;else Nocm">
+      <div *ngIf="completedList?.length;else Nocm">
         <div class="investment-card completed" *ngFor="let inv of completedList">
           <div class="card-header" (click)="toggleExpand(inv.id)">
             <div>

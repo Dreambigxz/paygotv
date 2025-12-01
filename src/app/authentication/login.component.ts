@@ -41,7 +41,7 @@ export class LoginComponent {
   // apiService = inject(ApiService);
   //
   history = window.history
-  helpLink = localStorage['helpLink']
+  helpLink = "https://t.me/GOTV123"
   // favoriteFramework = '';
   // loading=false
   // showPassword=false

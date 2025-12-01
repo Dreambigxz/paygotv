@@ -47,8 +47,6 @@ export class UserPackageComponent {
       this.expandedId=activePackage[0].id
     }
 
-    console.log({activePackage});
-
     return activePackage
   }
 

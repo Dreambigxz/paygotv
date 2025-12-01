@@ -68,6 +68,9 @@ export class MainComponent implements OnInit {
   GiftBoxOpen = false
   giftCode:any
 
+  openBlank(url:any){
+    window.open(url, '_blank')
+  }
   ngOnInit(): void{
     (window as any).lucide?.createIcons();
 

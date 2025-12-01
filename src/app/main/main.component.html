@@ -15,9 +15,9 @@
 		<span class="badge">{{ quickNav.storeData.store['unreadNotification'] }}</span>
 	</button>
 
-	<button mat-icon-button aria-label="Logout" class="icon-btn" (click)="quickNav.authService.logout(false)">
+	<!-- <button mat-icon-button aria-label="Logout" class="icon-btn" (click)="quickNav.authService.logout(false)">
     <mat-icon>logout</mat-icon>
-  </button>
+  </button> -->
 
 </header>
 
@@ -61,33 +61,33 @@
 			        <div class="icon-circle transactions"><i class="fas fa-exchange-alt"></i></div>
 			        <div class="label">Transactions</div>
 			      </div>
-			      <!-- <div class="icon-item" (click)="router.navigate(['vip'])">
+			      <div class="icon-item" (click)="router.navigate(['/invite-rewards'])">
 			        <div class="icon-circle gift"><i class="fas fa-gift"></i></div>
 			        <div class="label">Rewards</div>
-			      </div> -->
-			      <div class="icon-item" target="_blank" rel="noopener noreferrer">
+			      </div>
+			      <div (click)="openBlank('https://t.me/GOTV123')" class="icon-item" target="_blank" rel="noopener noreferrer">
 			        <div class="icon-circle help"><i class="fas fa-question-circle"></i></div>
 			        <div class="label">Help</div>
 			      </div>
-			      <div class="icon-item"  target="_blank" rel="noopener noreferrer">
+			      <div (click)="openBlank('https://t.me/+WZ5IcrjeuNtiN2M0')" class="icon-item"  target="_blank" rel="noopener noreferrer">
 			        <div class="icon-circle telegram"><i class="fab fa-telegram-plane"></i></div>
 			        <div class="label">Channel</div>
 			      </div>
-			      <div class="icon-item"  target="_blank" rel="noopener noreferrer">
+			      <!-- <div class="icon-item"  target="_blank" rel="noopener noreferrer">
 			        <div class="icon-circle discussion"><i class="fas fa-users"></i></div>
 			        <div class="label">Discussion</div>
-			      </div>
-			      <div
+			      </div> -->
+			      <!-- <div
 			        class="icon-item"
 
 			      >
 			        <div class="icon-circle app"><i class="fas fa-mobile-alt"></i></div>
 			        <div class="label">App</div>
-			      </div>
-			      <!-- <div class="icon-item" (click)="authService.logout(false)">
+			      </div> -->
+			      <div class="icon-item" (click)="quickNav.authService.logout(false)">
 			        <div class="icon-circle logout"><i class="fas fa-power-off"></i></div>
 			        <div class="label">Logout</div>
-			      </div> -->
+			      </div>
 			    </div>
 
 				<div class="investment-wrap">
