@@ -1,0 +1,76 @@
+<app-spinner></app-spinner>
+
+<div class="page page--login" data-page="login">
+
+	<!-- HEADER -->
+	<header class="header header--fixed">
+		<div class="header__inner">
+			<div (click)='history.back()' class="header__icon">
+				<span><img src="../assets/images/icons/gray/arrow-back.svg" alt="" title=""> </span>
+			</div>
+
+			<div id="google_translate_element" class="custom-google-select "></div>
+			<div class="">
+				<a href="{{helpLink}}" target="_blank"><img  src="../assets/images/icons8-headset-24.png" alt=""></a>
+
+			</div>
+
+			<div  style="justify-content:flex-end;display:flex" class="logo"><img style='width:40%' src="assets/logo.png" alt=""></div>
+
+    </div>
+	</header>
+
+  <div class="login">
+		<div class="login__content">
+			<h2 class="login__title">Join us for free!</h2>
+				<div class="login-form ">
+					<form (ngSubmit)="authService.onSubmit(MyForm,'register')" [formGroup]="MyForm" novalidate="novalidate">
+						<div class="login-form__row">
+							<label class="login-form__label">Username</label>
+							<input type="text" formControlName='username' name="Username" value="" class="login-form__input required" required>
+						</div>
+						<div class="login-form__row">
+							<label class="login-form__label">Full Name</label>
+							<input type="text" formControlName='fullname' name="fullname" value="" class="login-form__input required email" required>
+						</div>
+
+						<div class="login-form__row">
+							<label class="login-form__label">Email</label>
+							<input type="email" formControlName='email' name="email" value="" class="login-form__input required email" required>
+						</div>
+
+						<div  *ngIf="authService.RefCode" class="login-form__row">
+							<label class="login-form__label">Referral <small class="text-info" style="font-size:7px">(optional)</small></label>
+							<input  readonly type="invite" formControlName='RefCode' value="{{invitedBy}}" placeholder="uplinner -  {{authService.invitedBy}}" class="login-form__input ß" >
+						</div>
+
+
+						<div class="login-form__row password-wrapper">
+							<label class="login-form__label">Password</label>
+							<input
+							autocomplete=""
+								[type]="showPassword ? 'text' : 'password'"
+								formControlName='password'
+								name="password" value="hello"
+								class="login-form__input required password-input"
+								required>
+							<span class="toggle-icon" (click)="togglePassword()">
+						    {{ showPassword ? '🙈' : '👁️' }}
+						  </span>
+						</div>
+						<div class="login-form__row">
+							<input *ngIf="!loading; else elseBlock" type="submit" name="submit" class="login-form__submit button button--green button--full" id="submit" value="SIGN UP" [disabled]="!MyForm.valid">
+							<ng-template #elseBlock>
+								<input class="login-form__submit button button--blue button--full is-loading" value="waiting ...">
+							</ng-template>
+							<!-- <input type="submit" name="submit" class="login-form__submit button button--blue button--full" id="submit" value="SIGN UP" [disabled]="!MyForm.valid"> -->
+						</div>
+					</form>
+					<div class="login-form__bottom">
+						<p>Already have an account?</p>
+						<a routerLink="/login" class="button button--gray button--full mb-10" style="margin-bottom:4em !important">SIGN IN</a>
+					</div>
+				</div>
+		</div>
+  </div>
+</div>

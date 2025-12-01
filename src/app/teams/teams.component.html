@@ -1,0 +1,214 @@
+<app-header2></app-header2>
+<app-spinner></app-spinner>
+
+<app-menu-bottom></app-menu-bottom>
+
+<div  class="page" data-page="intro-metro">
+	<!-- PAGE CONTENT -->
+	<div  class="page__content page__content--with-header">
+
+      <div *ngIf="quickNav.storeData.store['refDir'] as data"  class="dashboard">
+
+        <div class="summary-cards">
+
+          <mat-card  class="summary-card withdrawal">
+            <mat-icon>credit_card</mat-icon>
+            <div>
+              <h3>Total Income:</h3>
+              <p >{{data.cashed_commissions|currencyConverter:true}}</p>
+            </div>
+          </mat-card>
+          <mat-card  class="summary-card deposit">
+            <mat-icon>account_balance_wallet</mat-icon>
+            <div>
+              <h3>Today Income:</h3>
+              <p style="color:#f71f10" >{{data.today_income|currencyConverter:true}}</p>
+            </div>
+          </mat-card>
+
+
+        </div>
+
+        <!-- <div class="stats-container">
+          <div class="stat-card">Total Invites<br><strong>0</strong></div>
+          <div class="stat-card">Team Deposits<br><strong>$0</strong></div>
+        </div> -->
+
+        <div class="invite-code">
+          <p>Invitation code:</p>
+          <p style='color:#ffe81f' class="link">{{refLink}}</p>
+          <p (click)='copyContent()' class="text-right">
+            <mat-icon>file_copy</mat-icon>
+          </p>
+        </div>
+        <div *ngIf="copied" class="copied-invite text-center">
+          <p  style="color: green;">✔ Invite code copied!</p>
+        </div>
+
+				<div (click)="openLevelDetails('pending','pending')" class="pending-users mb-12">
+					<p class="text-p">{{pendingSurb}} Pending Surbodinate</p>
+					<button   class="text-info" type="button" name="button"> View </button>
+				</div>
+
+
+				<div class="tab-container">
+
+				  <!-- TABS -->
+				  <div class="tabs">
+				    <!-- <button [class.active]="activeTab==='overview'" (click)="activeTab='overview'">Overview</button> -->
+				    <button [class.active]="activeTab==='referral'" (click)="activeTab='referral'">Referral</button>
+				    <!-- <button [class.active]="activeTab==='rebate'" (click)="activeTab='rebate'">Rebate</button> -->
+				    <button [class.active]="activeTab==='transactions'" (click)="activeTab='transactions'">Transactions</button>
+				  </div>
+
+
+				  <!-- REFERRAL TAB -->
+				  <div *ngIf="activeTab === 'referral'" class="content">
+						<div class="section-card">
+					    <h3 class="section-title">Referral</h3>
+
+					    <div class="group">
+
+								<div *ngFor="let ref of [18, 4, 1]; let i = index" class="group-row">
+									<div
+
+											(click)="openLevelDetails('referral', i + 1)"
+											class="group-details"
+											>
+											<span>Team {{ i + 1 }}</span>
+
+											<div class="right">
+											  <span>
+											    {{ data.referral['generation_' + (i + 1)].amount | currencyConverter:true }}
+											  </span>
+												<span>
+													({{ data.referral['generation_' + (i + 1)].count }} users)
+													<br>
+													<p class="view-user">
+												    View <i class="fa fa-arrow-right"></i>
+												  </p>
+												</span>
+
+
+											</div>
+
+											</div>
+											<p class="text-small" style="color:#099a09 !important">You get {{ref}}% of the users under here</p>
+								</div>
+
+
+					      <!-- <div (click)="openLevelDetails('referral',2)" class="group-row">
+					        <span>Team 2</span>
+					        <span>
+										{{ data.referral.generation_2.amount|currencyConverter:true }} ({{ data.referral.generation_2.count }} users)
+										<br>
+										<p  class="view-user">View <i class="fa fa-arrow-right"></i></p>
+									</span>
+					      </div>
+								<div
+										*ngFor="let ref of [18, 4, 1]; let i = index"
+										(click)="openLevelDetails('referral', i + 1)"
+										class="group-row"
+										>
+										<span>Team {{ i + 1 }}</span>
+
+										<div class="right">
+											<span>
+												{{ data.referral['generation_' + (i + 1)].amount | currencyConverter:true }}
+											</span>
+											<span>
+												({{ data.referral['generation_' + (i + 1)].count }} users)
+												<br>
+												<p class="view-user">
+													View <i class="fa fa-arrow-right"></i>
+												</p>
+											</span>
+
+
+										</div>
+
+										</div>
+					      <div (click)="openLevelDetails('referral',3)" class="group-row">
+					        <span>Team 3</span>
+					        <span>{{ data.referral.generation_3.amount|currencyConverter:true }} ({{ data.referral.generation_3.count }} users)
+										<p  class="view-user">View <i class="fa fa-arrow-right"></i></p>
+									</span>
+					      </div> -->
+					    </div>
+					  </div>
+				  </div>
+
+				  <!-- REBATE TAB -->
+				  <!-- <div *ngIf="activeTab === 'rebate'" class="content">
+						<div class="section-card">
+					    <h3 class="section-title">Rebate</h3>
+
+					    <div class="group">
+					      <div class="group-row">
+					        <span>Team 1</span>
+					        <span>{{ data.rebate.generation_1.amount|currencyConverter:true }} ({{ data.rebate.generation_1.count }} users)</span>
+					      </div>
+
+					      <div class="group-row">
+					        <span>Team 2</span>
+					        <span>{{ data.rebate.generation_2.amount|currencyConverter:true }} ({{ data.rebate.generation_2.count }} users)</span>
+					      </div>
+
+					      <div class="group-row">
+					        <span>Team 3</span>
+					        <span>{{ data.rebate.generation_3.amount|currencyConverter:true }} ({{ data.rebate.generation_3.count }} users)</span>
+					      </div>
+					    </div>
+					  </div>
+					</div> -->
+				  </div>
+
+				  <!-- TRANSACTIONS TAB -->
+				  <div *ngIf="activeTab === 'transactions'" class="content">
+						<div class="section-card">
+						 <h3 class="section-title">Deposits</h3>
+
+						 <div class="group">
+							 <div class="group-row">
+								 <span>Team1</span>
+								 <span>{{ data.deposit.generation_1.amount|currencyConverter:true }}</span>
+							 </div>
+
+							 <div class="group-row">
+								 <span>Team2</span>
+								 <span>{{ data.deposit.generation_2.amount|currencyConverter:true }}</span>
+							 </div>
+
+							 <div class="group-row">
+								 <span>Team3</span>
+								 <span>{{ data.deposit.generation_3.amount|currencyConverter:true }}</span>
+							 </div>
+						 </div>
+					 </div>
+
+					 <div class="section-card">
+					    <h3 class="section-title">Withdrawals</h3>
+
+					    <div class="group">
+					      <div class="group-row">
+					        <span>Generation 1</span>
+					        <span>{{ data.withdraw.generation_1.amount|currencyConverter:true }}</span>
+					      </div>
+
+					      <div class="group-row">
+					        <span>Generation 2</span>
+					        <span>{{ data.withdraw.generation_2.amount|currencyConverter:true }} </span>
+					      </div>
+
+					      <div class="group-row">
+					        <span>Generation 3</span>
+					        <span>{{ data.withdraw.generation_3.amount|currencyConverter:true }}  </span>
+					      </div>
+					    </div>
+					  </div>
+					</div>
+
+				</div>
+
+      </div>
+  </div>

@@ -1,0 +1,69 @@
+
+.tabs {
+  margin-top: 12px;
+  display: flex;
+  justify-content: space-around;
+  margin-bottom: 20px;
+}
+
+.tabs button {
+  flex: 1;
+  padding: 12px;
+  border: none;
+  background: rgba(255,255,255,0.07);
+  color: white;
+  cursor: pointer;
+  font-weight: 600;
+}
+
+.tabs button.active {
+  background: #111115;
+  border: 3px solid ;
+  /* rgba(255,255,255,0.15); */
+}
+
+.investment-card {
+  background: rgba(255,255,255,0.3);
+  padding: 15px;
+  border-radius: 12px;
+  margin-bottom: 15px;
+  margin: 10px;
+  .completed{
+    background: #edffee;
+  }
+}
+
+.investment-card.active{
+  border-left: 5px solid #ccc;
+}
+.investment-card.completed{
+  border-left: 5px solid #ccc;
+}
+
+.title{
+  color: #099a09;
+}
+.investment-card.completed .title{
+  color: #ccc
+}
+
+.card-header {
+  display: flex;
+  justify-content: space-between;
+  cursor: pointer;
+}
+
+.card-body {
+  margin-top: 15px;
+  background: rgba(255,255,255,0.05);
+  padding: 12px;
+  border-radius: 10px;
+  padding-left: 8px;
+
+  border-left: 1px solid;
+}
+
+.arrow {
+  font-size: 18px;
+  color: #111115;
+}

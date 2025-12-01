@@ -1,0 +1,29 @@
+
+<app-header2></app-header2>
+<app-spinner></app-spinner>
+
+<div class="page" data-page="intro-metro">
+
+<!-- PAGE CONTENT -->
+<div class="page__content page__content--with-header">
+
+
+    <!-- <h2>🔔 Notifications</h2> -->
+    <div *ngIf='display[0]' (scroll)="onScroll($event)" class="event-list {{notifications.length>loadData.batchSize?'scroll-box':''}}">
+      <div *ngFor="let n of display" [ngClass]="{ 'unread': n.unread }" class="notification-item">
+        <h4>{{ n.header }} <span class="time">{{ n.timestamp|momentAgo }}</span></h4>
+        <p>{{ n.message }}</p>
+        <button *ngIf="n.unread" (click)="markAsRead(n)">Mark as Read</button>
+        <!-- <button *ngIf="g.key==='unseen'&&!n.read" (click)="markAsRead(n)">Mark as Read</button> -->
+      </div>
+
+      <div *ngIf="notifications.length>loadData.batchSize">
+        <div *ngIf="loadData.currentIndex < notifications.length" class="loading">Scroll to load more...</div>
+        <div *ngIf="loadData.currentIndex >= notifications.length" class="done">No more items</div>
+      </div>
+
+    </div>
+
+</div>
+
+</div>

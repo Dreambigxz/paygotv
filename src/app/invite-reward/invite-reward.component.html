@@ -1,0 +1,71 @@
+<app-header2></app-header2>
+<app-spinner></app-spinner>
+
+
+<div  class="page" data-page="intro-metro">
+	<!-- PAGE CONTENT -->
+	<div  class="page__content page__content--with-header">
+
+    <div *ngIf="storeData.get('invite-rewards') as data" class="invite-wrapper">
+
+        <!-- TOP SUMMARY -->
+        <div class="summary-box">
+
+          <div class="summary-grid">
+            <div class="summary-item">
+              <p class="label">Total Invites</p>
+              <h3>{{ data.total_invites|currencyConverter:true }}</h3>
+            </div>
+
+            <div class="summary-item">
+              <p class="label">Total Earnings</p>
+              <h3>{{ data.total_earning | currencyConverter:true }}</h3>
+            </div>
+
+            <!-- <div class="summary-item">
+              <p class="label">Total Deposits</p>
+              <h3>{{ data.total_deposit | number }}</h3>
+            </div> -->
+          </div>
+        </div>
+
+        <!-- INVITE LEVELS -->
+        <h3 class="section-title">Reward Levels</h3>
+
+        <div class="levels-list">
+          <div
+            class="level-card"
+            *ngFor="let lvl of data.invite_levels"
+          >
+            <div class="level-header">
+              <span class="level-badge">Level {{ lvl.id }}</span>
+              <span class="reward">Reward: {{ lvl.reward_amount | currencyConverter:true }}</span>
+            </div>
+
+            <div class="level-body">
+              <div class="info-row">
+                <span>Invites Required:</span>
+                <strong>{{ lvl.invites_required }}</strong>
+              </div>
+
+              <!-- <div class="info-row">
+                <span>Deposit Required:</span>
+                <strong>₦{{ lvl.deposit_required }}</strong>
+              </div> -->
+
+              <!-- <div class="info-row">
+                <span>Reward Currency:</span>
+                <strong>{{ lvl.currency }}</strong>
+              </div> -->
+            </div>
+          </div>
+        </div>
+
+        <!-- EMPTY EARNING HISTORY -->
+        <div class="history-section" *ngIf="data.earning_history.length === 0">
+          <p class="empty-msg">No earnings yet — start inviting friends to earn bonuses!</p>
+        </div>
+
+      </div>
+
+</div></div>

@@ -1,0 +1,106 @@
+.invite-wrapper {
+  padding: 6px;
+  color: #fff;
+}
+
+/* Summary Section */
+.summary-box {
+  background: rgb(17 17 21 / 83%);
+  /* rgba(255, 255, 255, 0.07); */
+  padding: 16px;
+  border-radius: 12px;
+  margin-bottom: 25px;
+}
+
+.summary-box h2 {
+  margin-bottom: 12px;
+}
+
+.summary-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 15px;
+}
+
+.summary-item {
+  text-align: center;
+  background: rgba(255, 255, 255, 0.05);
+  padding: 12px;
+  border-radius: 10px;
+}
+
+.summary-item .label {
+  font-size: 13px;
+  opacity: 0.8;
+}
+
+.summary-item h3 {
+  margin-top: 4px;
+}
+
+/* Section Title */
+.section-title {
+  margin-bottom: 10px;
+  font-size: 18px;
+  font-weight: 600;
+}
+
+/* Level Cards */
+.levels-list {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+.level-card {
+  background: #fff;
+  /* rgba(255, 255, 255, 0.07); */
+  border-radius: 12px;
+  padding: 15px;
+  transition: 0.2s ease-in-out;
+  color: #000
+}
+
+.level-card:hover {
+  transform: translateY(-3px);
+  background: rgba(255, 255, 255, 0.1);
+}
+
+.level-header {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 10px;
+}
+
+.level-badge {
+  background: #125eed;
+  padding: 5px 10px;
+  border-radius: 8px;
+  font-size: 13px;
+  color: #fff;
+}
+
+.reward {
+  font-size: 14px;
+  font-weight: 600;
+}
+
+.level-body .info-row {
+  display: flex;
+  justify-content: space-between;
+  padding: 4px 0;
+  font-size: 14px;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.info-row:last-child {
+  border-bottom: none;
+}
+
+/* Empty State */
+.empty-msg {
+  text-align: center;
+  padding: 20px;
+  opacity: 0.7;
+  font-size: 14px;
+}

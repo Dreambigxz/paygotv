@@ -1,0 +1,13 @@
+::ng-deep .mat-mdc-dialog-surface {
+  background-color: #1a1b1f !important; // or any color you want
+}
+
+.delete{
+  color: var(--bs-danger) !important;
+}
+
+.mdc-dialog__title {
+  color: #fff;
+  text-transform: capitalize;
+  margin-left: 2em;
+}

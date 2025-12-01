@@ -1,0 +1,80 @@
+<app-header2></app-header2>
+<app-spinner></app-spinner>
+<app-menu-bottom></app-menu-bottom>
+
+
+<div  class="page" data-page="intro-metro">
+  <div  class="page__content page__content--with-header">
+
+    <div class="tabs">
+      <button
+        [class.active]="activeTab === 'active'"
+        (click)="activeTab = 'active'">
+        Active (₦{{ totalActiveAmount | number }})
+      </button>
+
+      <button
+        [class.active]="activeTab === 'completed'"
+        (click)="activeTab = 'completed'">
+        Completed (₦{{ totalCompletedAmount | number }})
+      </button>
+   </div>
+
+  <!-- ACTIVE TAB -->
+    <div *ngIf="activeTab === 'active'">
+      <div *ngIf="activeList.length;else Noav">
+        <div class="investment-card active" *ngFor="let inv of activeList">
+          <div class="card-header" (click)="toggleExpand(inv.id)">
+            <div>
+              <h3 class="title">{{ inv.data.title }}</h3>
+              <p>Invested: ₦{{ inv.data.invest | number }}</p>
+              <p>Daily Earn: ₦{{ inv.data.daily | number }}</p>
+              <p class="text-small"><strong>Next Earning</strong>: {{ inv.last_modified | countdown:24 |async}}</p>
+            </div>
+            <span class="arrow">{{ expandedId === inv.id ? '▲' : '▼' }}</span>
+          </div>
+
+          <div class="card-body" *ngIf="expandedId === inv.id">
+            <p><strong>Total Expected:</strong> ₦{{ inv.data.total | number }}</p>
+            <p><strong>Total Earned:</strong> ₦{{ earnedSoFar(inv) | number }}</p>
+            <p><strong>Left to Earn:</strong> ₦{{ inv.data.total - earnedSoFar(inv) | number }}</p>
+            <p><strong>Days Left:</strong> {{ daysLeft(inv) }}</p>
+          </div>
+        </div>
+      </div>
+
+      <ng-template #Noav>
+        <div class="no-data">
+            <p>No Investment found.</p>
+        </div>
+        </ng-template>
+    </div>
+
+    <!-- COMPLETED TAB -->
+    <div *ngIf="activeTab === 'completed'">
+      <div *ngIf="completedList.length;else Nocm">
+        <div class="investment-card completed" *ngFor="let inv of completedList">
+          <div class="card-header" (click)="toggleExpand(inv.id)">
+            <div>
+              <h3 class="title">{{ inv.data.title }}</h3>
+              <p>Invested: ₦{{ inv.data.invest | number }}</p>
+            </div>
+            <span class="arrow">{{ expandedId === inv.id ? '▲' : '▼' }}</span>
+          </div>
+
+          <div class="card-body" *ngIf="expandedId === inv.id">
+            <p><strong>Total Earned:</strong> ₦{{ inv.data.total | number }}</p>
+            <p><strong>Completed On:</strong> {{ inv.ending_at | date }}</p>
+          </div>
+        </div>
+      </div>
+      <ng-template #Nocm>
+        <div class="no-data">
+            <p>No Investment found.</p>
+        </div>
+        </ng-template>
+    </div>
+
+
+  </div>
+</div>

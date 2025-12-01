@@ -1,0 +1,68 @@
+
+.custom-toast {
+  display: flex;
+  align-items: center;
+  padding: 16px 24px;
+  border-radius: 12px;
+  backdrop-filter: blur(10px);
+  background-color: rgba(50, 50, 50, 0.85); /* transparent dark  */
+  color: white;
+  font-size: 16px;
+  box-shadow: 0 4px 20px rgba(0,0,0,0.3);
+  top: 100%; left: 0 ;
+
+  background:#1a1b1f !important; // remove Angular Material bg
+  box-shadow: none !important;
+  border:1px solid #ff22;
+  margin-bottom: 15em;
+
+  .icon {
+    font-size: 24px;
+    margin-right: 12px;
+  }
+
+  &.success .icon {
+    color: #4caf50;
+  }
+
+  &.error .icon {
+    color: #f44336;
+  }
+}
+
+
+.transparent-snackbar {
+  background: none !important; // Remove default snackbar background
+  box-shadow: none !important;
+  padding: 0 !important;
+}
+
+.close-btn {
+  background: transparent !important; /* no background */
+  width: 20px;
+  height: 20px;
+  padding: 0;
+  min-width: 20px;
+  line-height: 20px;
+}
+
+.close-btn mat-icon {
+  font-size: 16px;  /* make icon small */
+  height: 16px;
+  width: 16px;
+  color: #555; /* subtle color */
+}
+
+.close-btn:hover mat-icon {
+  color: #000; /* darker on hover */
+}
+
+.custom-toast .message {
+  flex: 1;
+  margin: 0 8px;
+  line-height: 1.2;
+}
+
+.close-btn {
+  margin-left: 8px;
+}

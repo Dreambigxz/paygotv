@@ -1,0 +1,10 @@
+<h2 *ngIf="data.title" [class]="data.title.toLowerCase()" style="font-weight:900" mat-dialog-title>{{ data.title || 'Confirm!' }}</h2>
+
+<mat-dialog-content>
+  <p style="color:#c9c9c9;font-weight:100;">{{ data.message||'Are you sure you want to continue with this request?' }}</p>
+</mat-dialog-content>
+
+<mat-dialog-actions align="end">
+  <button mat-button (click)="cancel()">Cancel</button>
+  <button mat-flat-button color="primary" (click)="confirm()">Yes</button>
+</mat-dialog-actions>

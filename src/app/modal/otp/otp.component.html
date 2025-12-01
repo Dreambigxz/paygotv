@@ -1,0 +1,22 @@
+<div class="modal-backdrop" (click)="close()"></div>
+
+<div class="modal-content">
+  <h2>{{data.header}}</h2>
+    <p class="text-info">{{data.message}}</p>
+  <div class="otp-container mb-10">
+    <input  *ngFor="let digit of otpDigits; let i = index"
+          type="number"
+           maxlength="1"
+           inputmode="numeric"
+            style="direction: ltr; text-align: left;"
+           [(ngModel)]="otp[i]"
+           (keyup)="onKeyUp($event, i)"
+           [id]="'otp-' + i" />
+    </div>
+
+    <mat-dialog-actions >
+      <button mat-raised-button  mat-button mat-dialog-close (click)="dialogRef.close(getOtp())">ok</button>
+      <!-- <button mat-button cdkFocusInitial>Close</button> -->
+    </mat-dialog-actions>
+  <!-- <button (click)="close()">Close</button> -->
+</div>
