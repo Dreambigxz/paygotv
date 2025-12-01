@@ -77,7 +77,7 @@ export class MainComponent implements OnInit {
     if (!Object.keys(this.quickNav.storeData.store).includes('user')||!this.quickNav.storeData.store['activities']) {
       this.reqServerData.get('main/')
       .subscribe(response => {
-        console.log("serviceData>>", this.quickNav.storeData.store);
+        // console.log("serviceData>>", this.quickNav.storeData.store);
       }
 
     );
