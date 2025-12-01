@@ -256,7 +256,7 @@
 		                      <strong>Invoice #: </strong>{{ tra[0].sessionID }}<br>
 		                      <strong>Date: </strong>{{ tra[0].timestamp | date:'short' }}<br>
 		                      <strong>Amount: </strong>{{ tra[0].amount|number:'1.2-2' }}<br>
-		                      <strong> Expected payment time: </strong>
+		                      <strong> Expected payment time: {{tra[0].timestamp|countdown:48|async}}</strong>
 		                    </div>
 		                  </div>
 		                  <hr />
