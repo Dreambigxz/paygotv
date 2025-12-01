@@ -130,10 +130,12 @@ export class PaymentConfirmationComponent {
 
   extraField(tra:any,type:any){
 
-    let  data = JSON.parse(tra.extraField)
-    if (type==='bank'){
-      return data[type].text
-    }
+    const fixed = tra.extraField.replace(/'/g, '"');
+    const data = JSON.parse(fixed);
+    // let  data = JSON.parse(tra.extraField)
+    // if (type==='bank'){
+    //   return data[type].text
+    // }
 
     return data[type]
   }

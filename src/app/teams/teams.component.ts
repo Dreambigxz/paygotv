@@ -53,8 +53,6 @@ export class TeamsComponent {
   makeRefLink() {
     const RefCode = this.quickNav.storeData.get('refDir')['RefCode'];
       this.refLink = `${window.location.origin}/register?uplinner=${RefCode}`;
-
-    // this.setLevelCard()
   }
 
 

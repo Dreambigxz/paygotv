@@ -96,11 +96,7 @@ export class ProfileComponent {
 
     this.setImageUrl()
 
-    if (!this.quickNav.storeData.get('profile')) {this.quickNav.reqServerData.get("profile/").subscribe(
-    (res)=>{
-      console.log({res});
-    }
-  )}}
+    if (!this.quickNav.storeData.get('profile')) {this.quickNav.reqServerData.get("profile/").subscribe()}}
 
 
   checkViews(){
