@@ -359,7 +359,7 @@ h2 {
   position: fixed;
   left: 0;
   right: 0;
-  bottom: 0;
+  bottom: 40%;
   height: auto;
   max-height: 90vh;      /* Allows scrolling if content is tall */
   background: rgba(255, 255, 255, 0.3);
@@ -369,7 +369,7 @@ h2 {
   overflow-y: auto;
   transform: translateY(100%);
   transition: transform 0.3s ease;
-  z-index: 9999;
+  z-index: 99999;
 }
 
 .modal-sheet.show {
