@@ -6,17 +6,19 @@
 			<div class="form">
 				<form id="paymentCompletedForm" (ngSubmit)="walletService.paymentCompleted()"  [formGroup]="paymentCompletedForm" novalidate="novalidate">
 					<div class="form__row">
-						<input [(ngModel)]="walletService.localDepositSendersName" type="text" formControlName="senders_name" name="senders_name" value="" class="form__input required" placeholder="Senders Name/ ID" >
-            <small class="minimum-val">Optional</small>
+						<input [(ngModel)]="walletService.localDepositSendersName" type="text" formControlName="senders_name" name="senders_name" value="" class="form__input required" placeholder="Senders Name/ ID"  required>
+            <!-- <small class="minimum-val">Optional</small> -->
+            <small class="minimum-val">Name on your account</small>
+
 					</div>
 					<div class="form__row">
 						<input [(ngModel)]="walletService.LocalDepositSenderAccNum" type="text" formControlName="transaction_id" name="transaction_id" value="" class="form__input required" placeholder="Transfer Number" required>
             <small class="minimum-val">Account number money was sent from</small>
 
 					</div>
-          <div class="form__row">
+          <!-- <div class="form__row">
 						<input accept=".jpg,.jpeg,image/jpeg,.png" type="file" (change)="walletService.onImageSelected($event)" formControlName="file" name="file" value="" class="form__input required" placeholder="Transaction ID" required>
-					</div>
+					</div> -->
 
           <!-- <input type="hidde" name="action" value="submit_payment_proof"> -->
 

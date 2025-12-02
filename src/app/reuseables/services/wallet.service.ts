@@ -281,9 +281,9 @@ export class WalletService {
     formData.append('origin', window.location.origin)
     formData.append('senders_name', this.localDepositSendersName)
     formData.append('senders_account_number', this.LocalDepositSenderAccNum)
-    formData.append('processor', "payment_receipt")
-    this.setSelectedFile(formData)
-      this.reqServerData.post("upload/",formData).subscribe(
+    formData.append('processor', "payment_completed")
+    // this.setSelectedFile(formData)
+      this.reqServerData.post("wallet/send_request/?showSpinner/",formData).subscribe(
         // {
         //   next: res => {
         //     console.log({res});

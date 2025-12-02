@@ -115,7 +115,7 @@
 											<div *ngIf='awaitingDeposit[0].generator=="awaiting_deposit_confirmation"'>
 												<h3>Payment completed ✅</h3>
 												<p class="text-info">
-													Your invoice is currently awaiting confirmation! Approximate waiting time.
+													Your invoice is currently awaiting bank confirmation! Approximate waiting network time.
 													<small class="text-small time">{{awaitingDeposit[0].timestamp|countdown:2|async}}</small>
 												</p>
 											</div>
@@ -142,7 +142,7 @@
 
 													<hr />
 
-													<div *ngIf='awaitingDeposit.generator!=="awaiting_deposit_confirmation"' class="invoice-customer">
+													<div *ngIf='awaitingDeposit[0].generator!=="awaiting_deposit_confirmation"' class="invoice-customer">
 														<strong>Verified Payment Account:</strong><br>
 														<p class="text-info">Make payment to any of the account below:</p>
 														<div class="address" *ngFor="let account of quickNav.storeData.get('local_banks')">
